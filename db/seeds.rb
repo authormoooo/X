@@ -5,3 +5,16 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+puts 'Cleaning database...'
+Todolist.destroy_all
+
+puts 'Creating to do lists...'
+5.times do
+  Todolist.create!(
+    task_name: Faker::Address.country,
+    finished: Faker::Boolean.boolean
+  )
+end
+
+puts 'Finished!!!'
